@@ -1,6 +1,17 @@
-import { Calculator } from "../Components/calculatorContainer";
+"use client";
+import { useState } from "react";
+import { Button } from "../Components/Button";
+import { Input } from "../Components/Input";
 
 const buttons = [
+  {
+    value: "(",
+    isPrimary: false,
+  },
+  {
+    value: ")",
+    isPrimary: false,
+  },
   {
     value: "AC",
     isPrimary: false,
@@ -9,10 +20,7 @@ const buttons = [
     value: "+/-",
     isPrimary: false,
   },
-  {
-    value: "%",
-    isPrimary: false,
-  },
+
   {
     value: "7",
     isPrimary: true,
@@ -26,7 +34,7 @@ const buttons = [
     isPrimary: true,
   },
   {
-    value: "x",
+    value: "÷",
     isPrimary: false,
   },
   {
@@ -41,8 +49,9 @@ const buttons = [
     value: "6",
     isPrimary: true,
   },
+
   {
-    value: "-",
+    value: "x",
     isPrimary: false,
   },
   {
@@ -58,9 +67,10 @@ const buttons = [
     isPrimary: true,
   },
   {
-    value: "+",
+    value: "-",
     isPrimary: false,
   },
+
   {
     value: "0",
     isPrimary: true,
@@ -73,17 +83,20 @@ const buttons = [
     value: "=",
     isPrimary: false,
   },
+  {
+    value: "+",
+    isPrimary: false,
+  },
 ];
 export default function Home() {
   return (
-    <div>
-      <input type="text" />
+    <div className="mt-10">
+      <Input />
       <div className="flex flex-wrap w-[420px] gap-3">
         {buttons.map((button, index) => (
-          <Calculator
-            key={button.value + index}
-            isPrimary={button.isPrimary}
-          >{button.value}</Calculator>
+          <Button key={button.value + index} isPrimary={button.isPrimary}>
+            {button.value}
+          </Button>
         ))}
       </div>
     </div>
